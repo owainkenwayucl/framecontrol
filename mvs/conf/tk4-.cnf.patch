@@ -1,0 +1,24 @@
+--- old/tk4-.cnf	2021-03-15 20:56:00.929824330 +0000
++++ tk4-.cnf	2021-03-15 20:57:14.539756654 +0000
+@@ -11,10 +11,10 @@
+ CPUMODEL 3033
+ MAINSIZE ${MAINSIZE:=16}
+ XPNDSIZE 0
+-CNSLPORT ${CNSLPORT:=3270}
++CNSLPORT ${CNSLPORT:=localhost:3270}
+ HTTP PORT ${HTTPPORT:=8038}
+ HTTP ROOT hercules/httproot
+-HTTP START
++#HTTP START
+ NUMCPU ${NUMCPU:=1}
+ MAXCPU ${MAXCPU:=1}
+ TZOFFSET +0000
+@@ -32,7 +32,7 @@
+ #
+ 0002 3211 prt/prt002.txt ${TK4CRLF}
+ 000E 1403 prt/prt00e.txt ${TK4CRLF}
+-000C 3505 ${RDRPORT:=3505} sockdev ascii trunc eof
++000C 3505 ${RDRPORT:=localhost:3505} sockdev ascii trunc eof
+ 000D 3525 pch/pch00d.txt ascii
+ 0480 3420 *
+ 010C 3505 jcl/dummy eof ascii trunc
