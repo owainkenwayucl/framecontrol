@@ -11,6 +11,8 @@ program Mandel(input,output);
 var xres,yres,mi,i,px,py:integer;
     xmax,xmin,ymax,ymin,rmax,x0,y0,x,y,xt:real;
     r2:real;
+    colours:array[0..51] of char;
+    c,mc:integer;
 begin
  read(xmax);
  read(xmin);
@@ -20,6 +22,15 @@ begin
  read(yres);
  read(mi);
  read(rmax);
+ colours:='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+ mc:=52;
+ for c:=49 downto 0 do
+ begin
+   if (colours[c]=' ') then
+     begin
+       mc:=c;
+     end;
+ end;
  writeln(' Mandelbrot Generator');
  writeln(' ====================');
  writeln('  ');
@@ -28,11 +39,15 @@ begin
  writeln(' Resolution: ', xres, ', ',yres);
  writeln(' Max iterations: ', mi);
  writeln(' Rmax: ', rmax);
+ writeln(' Colours: ', colours);
+ writeln(' Number of colours: ', mc);
  writeln('  ');
  r2:=rmax * rmax;
- for py:=1 to yres do
+ mc:=mc-1;
+ for py:=yres downto 1 do
  begin
    y0 := ((py/yres) * (ymax - ymin)) + ymin;
+   write(' ');
    for px:=1 to xres do
    begin
      x0 := ((px/xres) * (xmax -xmin)) + xmin;
@@ -48,11 +63,12 @@ begin
      end;
      if (i = mi) then
        begin
-         write('#');
+         write(' ');
        end
      else
        begin
-         write(' ');
+         c:=round((i/mi)*mc);
+         write(colours[c]);
        end;
    end;
    writeln(' ');
