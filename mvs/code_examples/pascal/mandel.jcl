@@ -24,7 +24,7 @@ begin
  read(rmax);
  colours:='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
  mc:=52;
- for c:=49 downto 0 do
+ for c:=51 downto 0 do
  begin
    if (colours[c]=' ') then
      begin
