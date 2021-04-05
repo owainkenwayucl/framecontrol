@@ -7,7 +7,7 @@
 //MANDEL   EXEC PASCG,PARM.GO='//STACK=8400K'
 //COMPILE.SYSIN DD *
 program Mandel(input,output);
-(* Skeleton PASCAL program *)
+(* Generate Mandelbrot sets *)
 var xres,yres,mi,i,px,py:integer;
     xmax,xmin,ymax,ymin,rmax,x0,y0,x,y,xt:real;
     r2:real;
